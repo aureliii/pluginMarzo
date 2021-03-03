@@ -3,7 +3,8 @@
   "compilerOptions": {
     "declaration": true,
     "outDir": "./lib",
-    "importHelpers": true
+    "importHelpers": true,
+    "rootDir": "./src"
   },
   "include": [
     "./src/**/*"
