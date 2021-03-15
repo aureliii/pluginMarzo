@@ -2,6 +2,7 @@ import { flags, SfdxCommand } from '@salesforce/command';
 import { Messages, SfdxError } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 
+
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
 
@@ -55,6 +56,9 @@ export default class Get extends SfdxCommand {
 
     // Query the org
     const result = await conn.query<Organization>(query);
+    var dirpath =  process.cwd();
+    console.log(`Current directory:`+dirpath);
+    //console.log(`Current directory: ${process.cwd()}`);
 
     // Organization will always return one result, but this is an example of throwing an error
     // The output and --json will automatically be handled for you.
