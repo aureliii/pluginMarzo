@@ -18,6 +18,7 @@ myMap.set('tab', "tabVisibilities");
 myMap.set('application', "applicationVisibilities");
 myMap.set('name', "userPermissions");
 myMap.set('recordType', "recordTypeVisibilities");
+myMap.set('apexPage', "pageAccesses");
 
 
 
@@ -54,7 +55,7 @@ export default class tabFix{
               
          //     console.log('template ',jsonTemplate);
          //     console.log(JSON.stringify(jsonTemplate));
-                console.log('meadata ',metadata.get('Base Operator').tabVisibilities);
+                console.log('meadata ',metadata.get('Base Operator'));
               for(const k of metadata.keys()){
                 var tabsFromPrifile = [];
                 let metadataProfile = metadata.get(k);
