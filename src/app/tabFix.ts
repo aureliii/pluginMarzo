@@ -85,7 +85,7 @@ export default class tabFix{
                               };
                               metadataProfile.tabVisibilities.push(newTabVis);               
                             });
-                            metadataProfile.tabVisibilities = metadataProfile.tabVisibilities.sort((a: { object: number; }, b: { object: number; }) => (a.object > b.object) ? 1 : -1);
+                            metadataProfile.tabVisibilities = metadataProfile.tabVisibilities.sort((a, b) => (a.object > b.object) ? 1 : -1);
                           }
     
                           
