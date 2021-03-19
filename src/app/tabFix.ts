@@ -63,7 +63,19 @@ export default class tabFix{
                 });
   
                 for (var key of myMap.keys()) {
-                      var object = metadataProfile[myMap.get(key)];                  
+                      var object = metadataProfile[myMap.get(key)]; 
+                      
+                    if (key == 'tab') {
+                      let difference = tabsFromOrg.filter(x => !tabsFromPrifile.includes(x));                             
+                      Object.entries(difference).forEach(([key, value]) => {
+                        var newTabVis = {                                  
+                            tab: value,
+                            visibility: 'Hidden'
+                        };
+                        metadataProfile.tabVisibilities.push(newTabVis);               
+                      });
+                      metadataProfile.tabVisibilities = metadataProfile.tabVisibilities.sort((a, b) => (a.object > b.object) ? 1 : -1);
+                    }
                 //      console.log('template ',jsonTemplate);
                   if(typeof object !== 'undefined' && typeof jsonTemplate["Profile"][key] !== 'undefined' && jsonTemplate["Profile"][key]){
                           var objectFiltered = object.filter(function(value, index, arr){                           
@@ -76,17 +88,7 @@ export default class tabFix{
                             console.log('typeof '+typeof jsonTemplate["Profile"][key]);
                             console.log('dopo typeof '+jsonTemplate["Profile"][key]);
                             */
-                          if (key == 'tab') {
-                            let difference = tabsFromOrg.filter(x => !tabsFromPrifile.includes(x));                             
-                            Object.entries(difference).forEach(([key, value]) => {
-                              var newTabVis = {                                  
-                                  tab: value,
-                                  visibility: 'Hidden'
-                              };
-                              metadataProfile.tabVisibilities.push(newTabVis);               
-                            });
-                            metadataProfile.tabVisibilities = metadataProfile.tabVisibilities.sort((a, b) => (a.object > b.object) ? 1 : -1);
-                          }
+                          
     
                           
                     }
