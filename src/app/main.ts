@@ -20,7 +20,7 @@ export default class main {
     
 	 	var objectsName = await retriveObjName.getObjsName(conn);
      	let userPermissionName = await retriveUserPermissionName.retrieveUserPermissions(conn);
-  //   	console.log('objectsName',objectsName);
+     	console.log('objectsName',objectsName);
   //   	console.log('userPermissionName', userPermissionName);
 
 		let profileMtd = await profileRetriever.retriveProfileMTD(conn);
@@ -31,6 +31,6 @@ export default class main {
 
 		profileMtd = await writeprofile.write(profileMtd);
 	
-//		console.log('Profiles: ', profileMtd);
+		
    	};
 }
