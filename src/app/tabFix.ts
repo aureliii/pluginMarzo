@@ -74,7 +74,7 @@ export default class tabFix{
                         };
                         metadataProfile.tabVisibilities.push(newTabVis);               
                       });
-                      metadataProfile.tabVisibilities = metadataProfile.tabVisibilities.sort((a, b) => (a.object > b.object) ? 1 : -1);
+                      metadataProfile.tabVisibilities = metadataProfile.tabVisibilities.sort((a, b) => (a.tab > b.tab) ? 1 : -1);
                     }
                 //      console.log('template ',jsonTemplate);
                   if(typeof object !== 'undefined' && typeof jsonTemplate["Profile"][key] !== 'undefined' && jsonTemplate["Profile"][key]){
