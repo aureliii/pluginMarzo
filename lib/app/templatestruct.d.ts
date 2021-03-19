@@ -2,10 +2,10 @@ export default class templatestruct {
     static getTemplate(): {
         Profile: {
             "-xmlns": string;
-            userPermissions: string[];
+            name: string[];
             apexClass: string[];
-            fieldPermissions: string[];
-            tabVisibilities: string[];
+            field: string[];
+            tab: string[];
             flow: string[];
         };
     };

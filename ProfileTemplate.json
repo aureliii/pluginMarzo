@@ -34,7 +34,7 @@
         "Asset.Temp_Current_Date__c",
         "GF_Site__c.GF_RegionEgonID__c"
       ],
-      "tabVisibilities": [
+      "tab": [
         "piblicsection",
         "reactApp",
         "standard-AccountInsight",

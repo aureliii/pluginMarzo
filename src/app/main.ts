@@ -1,16 +1,22 @@
 import  retriveObjName  from "./retriveObjName";
+import  retriveTabs  from "./retriveTabs";
 import  retriveUserPermissionName  from "./retriveUserPermissionName";
 import profileRetriever from "./profileRetriever";
 import tabFix from "./tabFix";
 import userPermissionFix from "./userPermissionFix";
 import objectPermissionFix from "./objectPermissionFix";
-import * as sfcore from '@salesforce/core/lib/connection';
 import writeprofile from "./writeprofile";
+import * as sfcore from '@salesforce/core/lib/connection';
+
 // import * as sfmeta from '@Types/jsforce/api/metadata';
 
 export default class main {
     public static async  start(conn : sfcore.Connection){
 		console.log(`Current directory: ${process.cwd()}`);
+
+
+		var Tabs = await retriveTabs.getTabsName(conn);
+		console.log('retriveTabs ',Tabs);
     
 	 	var objectsName = await retriveObjName.getObjsName(conn);
      	let userPermissionName = await retriveUserPermissionName.retrieveUserPermissions(conn);

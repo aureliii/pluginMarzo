@@ -1,7 +1,7 @@
 const template = {
     "Profile": {
       "-xmlns": "http://soap.sforce.com/2006/04/metadata",
-      "userPermissions": [
+      "name": [
         "ManageSandboxes",
         "LearningManager"
       ],
@@ -26,7 +26,7 @@ const template = {
         "LightningSelfRegisterControllerTest"
 
       ],
-      "fieldPermissions": [
+      "field": [
         "Case.GF_Associated_to_Messaging_session__c",
         "Case.GF_Reason__c",
         "Case.testField__c",
@@ -34,7 +34,7 @@ const template = {
         "Asset.Temp_Current_Date__c",
         "GF_Site__c.GF_RegionEgonID__c"
       ],
-      "tabVisibilities": [
+      "tab": [
         "piblicsection",
         "reactApp",
         "standard-AccountInsight",

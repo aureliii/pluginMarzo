@@ -9,12 +9,16 @@ import templatestruct from './templatestruct';
 var jsonTemplate ;
 var myMap = new Map();
 myMap.set('apexClass', "classAccesses");
-myMap.set('fieldPermissions', "fieldPermissions");
+myMap.set('field', "fieldPermissions");
 myMap.set('flow', "flowAccesses");
 myMap.set('layout', "layoutAssignments");
 myMap.set('object', "objectPermissions");
-myMap.set('tabVisibilities', "tabVisibilities");
-myMap.set('userPermissions', "userPermissions");
+myMap.set('tab', "tabVisibilities");
+myMap.set('application', "applicationVisibilities");
+myMap.set('name', "userPermissions");
+myMap.set('recordType', "recordTypeVisibilities");
+
+
 
 
 export default class tabFix{ 
@@ -48,14 +52,22 @@ export default class tabFix{
               
          //     console.log('template ',jsonTemplate);
          //     console.log(JSON.stringify(jsonTemplate));
-  
+        //      console.log('template ',metadata.get('Base Operator').tabVisibilities);
               for(const k of metadata.keys()){
                 let metadataProfile = metadata.get(k);
   
                 for (var key of myMap.keys()) {
                       var object = metadataProfile[myMap.get(key)];
-                    if(typeof object !== 'undefined' && typeof jsonTemplate["Profile"][key] !== 'undefined' && jsonTemplate["Profile"][key]){
-                          var objectFiltered = object.filter(function(value: { [x: string]: any; }, index: any, arr: any){
+       /*               if (k == 'Base Operator') {
+                        console.log('key della mapa '+ key);
+                        console.log('template nel if ',metadata.get(k));
+                        console.log('typeof '+typeof jsonTemplate["Profile"][key]);
+                        console.log('dopo typeof '+jsonTemplate["Profile"][key]);
+                      }
+                //      console.log('template ',jsonTemplate);
+         */         if(typeof object !== 'undefined' && typeof jsonTemplate["Profile"][key] !== 'undefined' && jsonTemplate["Profile"][key]){
+                          var objectFiltered = object.filter(function(value, index, arr){
+                            console.log('value ',value);
                             return jsonTemplate["Profile"][key].indexOf(value[key]) < 0;
                           });      
                           metadataProfile[myMap.get(key)] = objectFiltered;
