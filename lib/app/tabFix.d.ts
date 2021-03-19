@@ -1,3 +1,3 @@
 export default class tabFix {
-    static fix(metadata: Map<any, any>): Promise<Map<any, any>>;
+    static fix(tabsFromOrg: any, metadata: Map<any, any>): Promise<Map<any, any>>;
 }

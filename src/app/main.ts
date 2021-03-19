@@ -15,8 +15,8 @@ export default class main {
 		console.log(`Current directory: ${process.cwd()}`);
 
 
-		var Tabs = await retriveTabs.getTabsName(conn);
-		console.log('retriveTabs ',Tabs);
+		var tabs = await retriveTabs.getTabsName(conn);
+		console.log('retriveTabs ',tabs);
     
 	 	var objectsName = await retriveObjName.getObjsName(conn);
      	let userPermissionName = await retriveUserPermissionName.retrieveUserPermissions(conn);
@@ -24,7 +24,7 @@ export default class main {
   //   	console.log('userPermissionName', userPermissionName);
 
 		let profileMtd = await profileRetriever.retriveProfileMTD(conn);
-		profileMtd = await tabFix.fix(profileMtd);
+		profileMtd = await tabFix.fix(tabs,profileMtd);
 		
 		profileMtd = await userPermissionFix.fix(profileMtd,userPermissionName);
 		profileMtd = await objectPermissionFix.fix(profileMtd,objectsName);
