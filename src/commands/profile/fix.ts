@@ -29,7 +29,7 @@ export default class Fix extends SfdxCommand {
 
   protected static flagsConfig = {
     // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: messages.getMessage('nameFlagDescription')}),
+    names: flags.array({char: 'n', description: messages.getMessage('profileNameFlagDescription')}),
     force: flags.boolean({char: 'f', description: messages.getMessage('forceFlagDescription')})
   };
 
@@ -47,7 +47,7 @@ export default class Fix extends SfdxCommand {
 
     // this.org is guaranteed because requiresUsername=true, as opposed to supportsUsername
     const conn = this.org.getConnection();
-    await main.start(conn);
+    await main.start(conn, (this.flags.names ? this.flags.names : null));
     console.log(`Current directory nel ts: ${process.cwd()}`);
     const query = 'Select Name, TrialExpirationDate from Organization';
 

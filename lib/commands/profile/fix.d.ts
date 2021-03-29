@@ -7,7 +7,7 @@ export default class Fix extends SfdxCommand {
         name: string;
     }[];
     protected static flagsConfig: {
-        name: flags.Discriminated<flags.Option<string>>;
+        names: flags.Discriminated<flags.Array<string>>;
         force: flags.Discriminated<flags.Boolean<boolean>>;
     };
     protected static requiresUsername: boolean;

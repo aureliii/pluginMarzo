@@ -37,14 +37,15 @@ export default class profileRetriever{
         return profileNames;
     }
 
-    public static async retriveProfileMTD(conn :sfcore.Connection){
-        let profileNames = await profileRetriever.retrieveProfileNames(conn);
+    public static async retriveProfileMTD(conn :sfcore.Connection, profileNames : string[]){
+        if(!profileNames && profileNames == null)
+            profileNames = await profileRetriever.retrieveProfileNames(conn);
 
-//		var profileList = new Map<String, sfmeta.MetadataInfo>();
+        //var profileList = new Map<String, sfmeta.MetadataInfo>();
         var mtd = new Map();
 		var i, j, tempArray, chunk = 10;
         for (i=0, j=profileNames.length; i<j; i += chunk) {
-			tempArray = profileNames.slice(i,i+chunk);
+			tempArray = profileNames.slice(i, i+chunk);
 			console.log("temArray len: " + tempArray.length);
             var temp = await profileRetriever.retrieveProfile(conn, tempArray);
             temp.forEach((value, key) => {
